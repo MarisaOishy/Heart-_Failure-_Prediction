@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Failure Prediction</title>
+</head>
+<body>
+    <h1>Heart Failure Prediction</h1>
+    <form method="post">
+        {% for feature in feature_names %}
+            <label>{{ feature }}:</label>
+            <input type="text" name="{{ feature }}" required><br>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction is not none %}
+        <h2>Prediction: {{ 'Death Event' if prediction == 1 else 'No Death Event' }}</h2>
+    {% endif %}
+</body>
+</html>
